@@ -54,7 +54,7 @@ public class DataSourceConfig {
                 if (query != null && !query.isBlank()) {
                     jdbcUrl += "?" + query;
                 } else {
-                    jdbcUrl += "?useSSL=true&requireSSL=true&verifyServerCertificate=false&serverTimezone=UTC&allowPublicKeyRetrieval=true";
+                    jdbcUrl += "?useSSL=true&requireSSL=true&verifyServerCertificate=false&serverTimezone=UTC&allowPublicKeyRetrieval=true&connectTimeout=10000&socketTimeout=30000";
                 }
 
                 String username = properties.getUsername();
@@ -82,6 +82,7 @@ public class DataSourceConfig {
                 dataSource.setConnectionTimeout(30000);
                 dataSource.setIdleTimeout(600000);
                 dataSource.setMaxLifetime(1800000);
+                dataSource.setInitializationFailTimeout(60000);
                 
                 return dataSource;
             } else {
