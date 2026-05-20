@@ -17,9 +17,10 @@ export default defineConfig({
     allowedHosts: true,
   },
   build: {
-    target: "es2022",
+    target: "es2020",
     sourcemap: false, // Prevents source code leakage
     minify: "esbuild",
+    chunkSizeWarningLimit: 1000,
     rollupOptions: {
       output: {
         manualChunks: {

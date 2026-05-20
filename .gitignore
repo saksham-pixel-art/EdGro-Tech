@@ -1,5 +1,7 @@
 # Dependencies
 node_modules
+# Never ignore lockfile — it must be committed for reproducible builds
+# package-lock.json  <-- intentionally NOT ignored
 
 # Build output
 dist
