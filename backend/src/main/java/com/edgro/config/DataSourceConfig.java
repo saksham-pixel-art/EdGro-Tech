@@ -22,15 +22,22 @@ public class DataSourceConfig {
     @Bean
     @Primary
     public DataSource dataSource(DataSourceProperties properties) {
-        String rawUrl = System.getenv("DATABASE_URL");
+        String rawUrl = properties.getUrl();
         if (rawUrl == null || rawUrl.isBlank()) {
-            log.info("DATABASE_URL is not set, using default Spring datasource configuration.");
+            rawUrl = properties.determineUrl();
+        }
+        if (rawUrl == null || rawUrl.isBlank()) {
+            rawUrl = System.getenv("DATABASE_URL");
+        }
+
+        if (rawUrl == null || rawUrl.isBlank()) {
+            log.info("Database URL is not set. Using default Spring datasource configuration.");
             return properties.initializeDataSourceBuilder().type(HikariDataSource.class).build();
         }
 
-        log.info("Detected DATABASE_URL environment variable. Parsing...");
         try {
             if (rawUrl.startsWith("mysql://")) {
+                log.info("Detected mysql:// URL format. Parsing into JDBC URL...");
                 URI uri = new URI(rawUrl);
                 String host = uri.getHost();
                 int port = uri.getPort();
@@ -50,25 +57,16 @@ public class DataSourceConfig {
                     jdbcUrl += "?useSSL=true&requireSSL=true&verifyServerCertificate=false&serverTimezone=UTC&allowPublicKeyRetrieval=true";
                 }
 
-                String username = "";
-                String password = "";
+                String username = properties.getUsername();
+                String password = properties.getPassword();
+
                 String userInfo = uri.getUserInfo();
                 if (userInfo != null && userInfo.contains(":")) {
                     String[] parts = userInfo.split(":", 2);
-                    username = parts[0];
-                    password = parts[1];
+                    if (username == null || username.isBlank()) username = parts[0];
+                    if (password == null || password.isBlank()) password = parts[1];
                 } else if (userInfo != null) {
-                    username = userInfo;
-                }
-
-                // Apply env overrides if explicitly provided
-                String envUser = System.getenv("DB_USER");
-                String envPass = System.getenv("DB_PASS");
-                if (envUser != null && !envUser.isBlank()) {
-                    username = envUser;
-                }
-                if (envPass != null && !envPass.isBlank()) {
-                    password = envPass;
+                    if (username == null || username.isBlank()) username = userInfo;
                 }
 
                 log.info("Configuring HikariDataSource with parsed JDBC URL: {}", jdbcUrl);
@@ -87,12 +85,12 @@ public class DataSourceConfig {
                 
                 return dataSource;
             } else {
-                log.info("DATABASE_URL does not start with mysql://. Using standard configuration builder.");
+                log.info("Database URL is in standard format ({}). Delegating to Spring builder.", rawUrl);
                 return properties.initializeDataSourceBuilder().type(HikariDataSource.class).build();
             }
         } catch (URISyntaxException e) {
-            log.error("Failed to parse DATABASE_URL: {}", rawUrl, e);
-            throw new IllegalArgumentException("Invalid DATABASE_URL format", e);
+            log.error("Failed to parse database URL: {}", rawUrl, e);
+            throw new IllegalArgumentException("Invalid database URL format", e);
         }
     }
 }
