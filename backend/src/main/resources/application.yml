@@ -87,9 +87,9 @@ spring:
       on-profile: prod
 
   datasource:
-    url: ${DATABASE_URL}
-    username: ${DB_USER}
-    password: ${DB_PASS}
+    url: ${DATABASE_URL:}
+    username: ${DB_USER:}
+    password: ${DB_PASS:}
     hikari:
       maximum-pool-size: 20
       minimum-idle: 5
