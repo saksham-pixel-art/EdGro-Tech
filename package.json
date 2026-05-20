@@ -65,10 +65,13 @@
     "vite-tsconfig-paths": "^5.1.4"
   },
   "optionalDependencies": {
-    "@rollup/rollup-linux-x64-gnu": "^4.29.1",
-    "@rollup/rollup-linux-x64-musl": "^4.29.1",
-    "lightningcss-linux-x64-gnu": "^1.32.0",
-    "lightningcss-linux-x64-musl": "^1.32.0"
+    "@esbuild/linux-x64": "0.21.5",
+    "@rollup/rollup-linux-x64-gnu": "4.60.1",
+    "@rollup/rollup-linux-x64-musl": "4.60.1",
+    "@tailwindcss/oxide-linux-x64-gnu": "4.2.2",
+    "@tailwindcss/oxide-linux-x64-musl": "4.2.2",
+    "lightningcss-linux-x64-gnu": "1.32.0",
+    "lightningcss-linux-x64-musl": "1.32.0"
   },
   "engines": {
     "node": ">=20.0.0",
