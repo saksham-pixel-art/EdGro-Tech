@@ -96,6 +96,12 @@ spring:
       connection-timeout: 30000
       idle-timeout: 600000
       max-lifetime: 1800000
+      data-source-properties:
+        useSSL: true
+        requireSSL: true
+        verifyServerCertificate: false
+        serverTimezone: UTC
+        allowPublicKeyRetrieval: true
 
   jpa:
     show-sql: false
@@ -104,5 +110,10 @@ spring:
 
 logging:
   level:
+    root: ERROR
     com.edgro: INFO
-    root: WARN
+    org.springframework.boot: INFO
+    org.springframework.boot.autoconfigure: INFO
+    org.flywaydb: INFO
+    com.zaxxer.hikari: INFO
+    org.springframework.web: WARN
