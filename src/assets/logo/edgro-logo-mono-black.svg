@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 64" fill="none">
+  <!-- Monochrome black version — single color #1A1A1A -->
+
+  <!-- Book base -->
+  <path d="M8 44 Q32 50 56 44 L56 48 Q32 54 8 48 Z" fill="#1A1A1A"/>
+  <path d="M8 44 Q32 38 56 44" stroke="#1A1A1A" stroke-width="1.5" fill="none"/>
+  <!-- Left page -->
+  <path d="M10 20 Q10 14 16 13 L31 13 L31 44 Q20 41 10 44 Z" fill="#555555"/>
+  <!-- Right page -->
+  <path d="M54 20 Q54 14 48 13 L33 13 L33 44 Q44 41 54 44 Z" fill="#333333"/>
+  <!-- Spine -->
+  <line x1="32" y1="13" x2="32" y2="44" stroke="#111111" stroke-width="1.5"/>
+  <!-- E -->
+  <rect x="13" y="19" width="7" height="18" rx="1" fill="#FFFFFF"/>
+  <rect x="13" y="19" width="13" height="3.5" rx="1" fill="#FFFFFF"/>
+  <rect x="13" y="26.5" width="10" height="3" rx="1" fill="#FFFFFF"/>
+  <rect x="13" y="33.5" width="13" height="3.5" rx="1" fill="#FFFFFF"/>
+  <!-- G -->
+  <path d="M51 22 Q51 17 46 16 Q39 15 35 19 Q32 22 32 28 Q32 34 36 37 Q40 40 46 39 Q51 38 52 34 L52 28 L45 28 L45 31 L49 31 Q48 35 44 36 Q39 37 36 33 Q34 29 35 25 Q36 20 41 18 Q46 17 49 20 Q51 21 51 24 Z" fill="#1A1A1A"/>
+  <!-- Dots -->
+  <rect x="42" y="5"  width="4" height="4" rx="0.8" fill="#1A1A1A" opacity="0.9"/>
+  <rect x="48" y="4"  width="3.5" height="3.5" rx="0.7" fill="#1A1A1A" opacity="0.7"/>
+  <rect x="53" y="4"  width="3" height="3" rx="0.6" fill="#1A1A1A" opacity="0.5"/>
+  <rect x="45" y="10" width="3.5" height="3.5" rx="0.7" fill="#1A1A1A" opacity="0.75"/>
+  <rect x="50" y="9"  width="3" height="3" rx="0.6" fill="#1A1A1A" opacity="0.55"/>
+
+  <!-- Wordmark -->
+  <text x="72" y="36" font-family="'Poppins','Inter',sans-serif" font-size="22" font-weight="700" fill="#1A1A1A" letter-spacing="-0.3">EdGro</text>
+  <text x="163" y="36" font-family="'Poppins','Inter',sans-serif" font-size="22" font-weight="300" fill="#444444" letter-spacing="-0.3"> Tech</text>
+  <text x="72" y="50" font-family="'Poppins','Inter',sans-serif" font-size="8" font-weight="400" fill="#888888" letter-spacing="2.5">PRIVATE LIMITED</text>
+</svg>

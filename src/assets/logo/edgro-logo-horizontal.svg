@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 64" fill="none">
+  <defs>
+    <linearGradient id="goldH" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E8B86A"/>
+      <stop offset="100%" stop-color="#C89B3C"/>
+    </linearGradient>
+  </defs>
+
+  <!-- ── Icon Mark (64×64 box) ─────────────────────────────── -->
+  <!-- Book base pages -->
+  <path d="M8 44 Q32 50 56 44 L56 48 Q32 54 8 48 Z" fill="url(#goldH)"/>
+  <path d="M8 44 Q32 38 56 44" stroke="url(#goldH)" stroke-width="1.5" fill="none"/>
+
+  <!-- Left page -->
+  <path d="M10 20 Q10 14 16 13 L31 13 L31 44 Q20 41 10 44 Z" fill="#2A2A2A"/>
+  <path d="M10 20 Q10 14 16 13 L31 13 L31 44 Q20 41 10 44 Z" fill="url(#goldH)" fill-opacity="0.08"/>
+
+  <!-- Right page -->
+  <path d="M54 20 Q54 14 48 13 L33 13 L33 44 Q44 41 54 44 Z" fill="#2A2A2A"/>
+  <path d="M54 20 Q54 14 48 13 L33 13 L33 44 Q44 41 54 44 Z" fill="url(#goldH)" fill-opacity="0.12"/>
+
+  <!-- Spine -->
+  <line x1="32" y1="13" x2="32" y2="44" stroke="#1A1A1A" stroke-width="1.5"/>
+
+  <!-- E letter (left page) -->
+  <rect x="13" y="19" width="7" height="18" rx="1" fill="#9A9A9A"/>
+  <rect x="13" y="19" width="13" height="3.5" rx="1" fill="#9A9A9A"/>
+  <rect x="13" y="26.5" width="10" height="3" rx="1" fill="#9A9A9A"/>
+  <rect x="13" y="33.5" width="13" height="3.5" rx="1" fill="#9A9A9A"/>
+
+  <!-- G letter (right page) -->
+  <path d="M51 22 Q51 17 46 16 Q39 15 35 19 Q32 22 32 28 Q32 34 36 37 Q40 40 46 39 Q51 38 52 34 L52 28 L45 28 L45 31 L49 31 Q48 35 44 36 Q39 37 36 33 Q34 29 35 25 Q36 20 41 18 Q46 17 49 20 Q51 21 51 24 Z" fill="url(#goldH)"/>
+
+  <!-- Pixel dots (top right of icon) -->
+  <rect x="42" y="5"  width="4" height="4" rx="0.8" fill="url(#goldH)" opacity="0.9"/>
+  <rect x="48" y="4"  width="3.5" height="3.5" rx="0.7" fill="url(#goldH)" opacity="0.7"/>
+  <rect x="53" y="4"  width="3" height="3" rx="0.6" fill="url(#goldH)" opacity="0.5"/>
+  <rect x="45" y="10" width="3.5" height="3.5" rx="0.7" fill="url(#goldH)" opacity="0.75"/>
+  <rect x="50" y="9"  width="3" height="3" rx="0.6" fill="url(#goldH)" opacity="0.55"/>
+  <rect x="55" y="8"  width="2.5" height="2.5" rx="0.5" fill="url(#goldH)" opacity="0.4"/>
+
+  <!-- ── Wordmark ─────────────────────────────────────────── -->
+  <!-- EdGro (gold) -->
+  <text x="72" y="36" font-family="'Poppins', 'Inter', sans-serif" font-size="22" font-weight="700" fill="url(#goldH)" letter-spacing="-0.3">EdGro</text>
+  <!-- Tech (silver/light) -->
+  <text x="163" y="36" font-family="'Poppins', 'Inter', sans-serif" font-size="22" font-weight="300" fill="#C8C8C8" letter-spacing="-0.3"> Tech</text>
+  <!-- Private Limited -->
+  <text x="72" y="50" font-family="'Poppins', 'Inter', sans-serif" font-size="8" font-weight="400" fill="#666666" letter-spacing="2.5">PRIVATE LIMITED</text>
+</svg>

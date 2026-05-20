@@ -1,0 +1,108 @@
+spring:
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:dev}
+
+---
+# ─── SHARED ───────────────────────────────────────────────────────────────────
+spring:
+  application:
+    name: edgro-backend
+
+  jpa:
+    open-in-view: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+        format_sql: true
+
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+    baseline-on-migrate: true
+    repair-on-migrate: true
+    out-of-order: false
+
+  cache:
+    type: simple   # swap to redis in prod
+
+server:
+  port: ${PORT:8080}
+  compression:
+    enabled: true
+    mime-types: application/json,text/html,text/css,application/javascript
+    min-response-size: 1024
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: when-authorized
+
+app:
+  jwt:
+    secret: ${JWT_SECRET}
+    expiration-ms: ${JWT_EXPIRATION_MS:86400000}   # 24 h
+  cors:
+    allowed-origins: ${CORS_ORIGINS:http://localhost:5173,http://localhost:5174,http://localhost:4173}
+  google:
+    service-account-key-path: ${GOOGLE_SA_KEY_PATH:}
+    service-account-key-json: ${GOOGLE_SA_KEY_JSON:}
+    sheets:
+      enabled: ${GOOGLE_SHEETS_ENABLED:false}
+      spreadsheet-id: ${GOOGLE_SHEETS_SPREADSHEET_ID:1ykOWVwv3utsgbtKTQWRoUF__1rDYdwimfKqBfNaWifk}
+      sheet-name: ${GOOGLE_SHEETS_SHEET_NAME:Leads}
+
+---
+# ─── DEV ──────────────────────────────────────────────────────────────────────
+spring:
+  config:
+    activate:
+      on-profile: dev
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/edgro_dev?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+    username: ${DB_USER:edgro}
+    password: ${DB_PASS}
+    hikari:
+      maximum-pool-size: 5
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: validate   # Flyway owns the schema
+
+logging:
+  level:
+    com.edgro: DEBUG
+    org.springframework.security: DEBUG
+
+---
+# ─── PROD ─────────────────────────────────────────────────────────────────────
+spring:
+  config:
+    activate:
+      on-profile: prod
+
+  datasource:
+    url: ${DATABASE_URL}
+    username: ${DB_USER}
+    password: ${DB_PASS}
+    hikari:
+      maximum-pool-size: 20
+      minimum-idle: 5
+      connection-timeout: 30000
+      idle-timeout: 600000
+      max-lifetime: 1800000
+
+  jpa:
+    show-sql: false
+    hibernate:
+      ddl-auto: validate
+
+logging:
+  level:
+    com.edgro: INFO
+    root: WARN

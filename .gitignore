@@ -1,0 +1,43 @@
+# Dependencies
+node_modules
+
+# Build output
+dist
+.output
+.tanstack/tmp
+
+# Environment secrets — never commit these
+.env
+.env.local
+.env.production
+backend/.env
+secrets/
+
+# Java / Maven
+backend/target/
+*.class
+*.jar
+*.war
+
+# TanStack Router (auto-generated)
+src/routeTree.gen.ts
+
+# Editor
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Logs
+*.log
+npm-debug.log*
+backend/compile_*.txt
+backend/*_log.txt
+
+# Docker
+docker-compose.override.yml
