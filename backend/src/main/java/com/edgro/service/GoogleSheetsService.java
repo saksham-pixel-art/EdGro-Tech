@@ -28,6 +28,8 @@ public class GoogleSheetsService {
     private static final Logger log = LoggerFactory.getLogger(GoogleSheetsService.class);
     private static final DateTimeFormatter TIMESTAMP_FMT =
             DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+    private static final java.time.ZoneId IST_ZONE = java.time.ZoneId.of("Asia/Kolkata");
+    private static final java.time.ZoneId UTC_ZONE = java.time.ZoneId.of("UTC");
 
     /** Full URL: https://sheets.googleapis.com/v4/spreadsheets/{id}/values/{range}:append?... */
     private static final String APPEND_URL =
@@ -69,8 +71,18 @@ public class GoogleSheetsService {
 
         // Build the row — columns must match the spreadsheet header order exactly:
         // Timestamp | Full Name | Email | Mobile Number | Course | State | City | Preferred University | Source
+        
+        String formattedTimestamp = "";
+        if (lead.getCreatedAt() != null) {
+            // Server runs in UTC, convert to IST for Google Sheets
+            formattedTimestamp = lead.getCreatedAt()
+                    .atZone(UTC_ZONE)
+                    .withZoneSameInstant(IST_ZONE)
+                    .format(TIMESTAMP_FMT);
+        }
+
         List<Object> row = List.of(
-                lead.getCreatedAt() != null ? lead.getCreatedAt().format(TIMESTAMP_FMT) : "",
+                formattedTimestamp,
                 nullSafe(lead.getName()),
                 nullSafe(lead.getEmail()),
                 nullSafe(lead.getPhone()),
