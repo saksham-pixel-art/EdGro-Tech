@@ -1,6 +1,7 @@
 import heroImg from "@/assets/hero-student.jpg";
 import { ArrowRight, Sparkles, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Image } from "@/components/ui/image";
 import { Reveal } from "./Reveal";
 import { CounselingModal } from "./CounselingModal";
 import { useCounselingModal } from "@/hooks/use-counseling-modal";
@@ -80,14 +81,12 @@ export function Hero() {
         {/* Right — hero image */}
         <Reveal delay={2} className="relative">
           <div className="relative rounded-3xl overflow-hidden ring-1 ring-border shadow-elegant aspect-[4/5] lg:aspect-[5/6] tilt-card">
-            <img
+            <Image
               src={heroImg}
               alt="Confident graduate at university campus"
               className="absolute inset-0 h-full w-full object-cover"
-              width={800}
-              height={960}
-              fetchPriority="high"
-              decoding="async"
+              containerClassName="absolute inset-0 h-full w-full"
+              priority
             />
             <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/40 to-transparent" />
             {/* Floating chip */}

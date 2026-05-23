@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "@tanstack/react-router";
 import { ChevronRight, Star, MapPin, BadgeCheck, CheckCircle2, Sparkles, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Image } from "@/components/ui/image";
 import { type University } from "@/lib/edgro-data";
 
 export function UniversityHeroBanner({
@@ -19,11 +20,12 @@ export function UniversityHeroBanner({
     <div className="relative overflow-hidden min-h-[500px] flex items-center group">
       {/* ── Background image with overlay and shimmer ──────────────────────── */}
       <div className="absolute inset-0 bg-charcoal">
-        <img
+        <Image
           src={dynamicImage || (uni as any).image}
           alt={uni.name}
           className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
-          loading="eager"
+          containerClassName="absolute inset-0 w-full h-full"
+          priority
         />
         <div
           className="absolute inset-0 mix-blend-multiply"

@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Clock, Calendar, ArrowRight } from "lucide-react";
 import type { BlogPost } from "@/lib/blog-data";
+import { Image } from "@/components/ui/image";
 
 function formatDate(iso: string): string {
   return new Date(iso).toLocaleDateString("en-IN", {
@@ -19,12 +20,11 @@ export function BlogCard({ post }: { post: BlogPost }) {
     >
       {/* Cover image */}
       <div className="relative h-48 overflow-hidden bg-charcoal shrink-0">
-        <img
+        <Image
           src={post.coverImage}
           alt={post.title}
-          loading="lazy"
-          decoding="async"
           className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+          containerClassName="absolute inset-0 h-full w-full"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-charcoal/60 via-transparent to-transparent" />
         {/* Category badge */}

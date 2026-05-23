@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { type UniversityDto } from "@/api/client";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { Image } from "@/components/ui/image";
 
 export function UniversityCard({
   u,
@@ -13,7 +14,6 @@ export function UniversityCard({
   onApply?: () => void;
 }) {
   const navigate = useNavigate();
-  const [imageLoaded, setImageLoaded] = useState(false);
 
   return (
     <motion.div
@@ -27,18 +27,11 @@ export function UniversityCard({
     >
       {/* ── Image with 16:9 Aspect Ratio and Shimmer Effect ──────────────────────── */}
       <div className="relative aspect-video overflow-hidden bg-charcoal flex-shrink-0">
-        {!imageLoaded && (
-          <div className="absolute inset-0 bg-white/5 animate-pulse" />
-        )}
-        <img
+        <Image
           src={u.primaryImage}
           alt={`${u.name} campus`}
-          loading="lazy"
-          decoding="async"
-          onLoad={() => setImageLoaded(true)}
-          className={`absolute inset-0 h-full w-full object-cover
-                     transition-all duration-700 ease-out group-hover:scale-105 group-hover:brightness-110
-                     ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+          className="absolute inset-0 h-full w-full object-cover transition-all duration-700 ease-out group-hover:scale-105 group-hover:brightness-110"
+          containerClassName="absolute inset-0 h-full w-full"
         />
         {/* Soft dark overlay for readability */}
         <div className="absolute inset-0 bg-gradient-to-t from-[#0F1113]/90 via-[#0F1113]/30 to-transparent mix-blend-multiply" />

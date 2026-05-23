@@ -3,6 +3,8 @@ import { Link } from "@tanstack/react-router";
 import { ArrowRight, MapPin, Star } from "lucide-react";
 import { type UniversityDto } from "@/api/client";
 
+import { Image } from "@/components/ui/image";
+
 export function FeaturedUniversityCard({ u }: { u: UniversityDto }) {
   return (
     <Link to="/universities/$slug" params={{ slug: u.slug }} className="block h-full">
@@ -10,11 +12,11 @@ export function FeaturedUniversityCard({ u }: { u: UniversityDto }) {
         whileHover={{ y: -8 }}
         className="group relative h-[400px] w-full min-w-[300px] rounded-3xl overflow-hidden shadow-elegant cursor-pointer border border-border bg-card"
       >
-        <img
+        <Image
           src={u.primaryImage}
           alt={u.name}
           className="absolute inset-0 h-full w-full object-cover transition-transform duration-1000 group-hover:scale-110"
-          loading="lazy"
+          containerClassName="absolute inset-0 h-full w-full"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/50 to-transparent" />
         

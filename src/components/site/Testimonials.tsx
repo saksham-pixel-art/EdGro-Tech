@@ -18,7 +18,7 @@ const TESTIMONIALS = [
   },
   {
     name: "Rahul Desai",
-    role: "MCA, Jain University",
+    role: "MCA, Shoolini University",
     content: "The end-to-end support is real. From document verification to getting my admission letter, it took just a few days. Their lifetime career support is an incredible bonus that no one else offers.",
     rating: 5,
     image: "/images/testimonials/student_3.png"

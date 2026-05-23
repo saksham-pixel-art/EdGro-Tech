@@ -2,6 +2,7 @@ import { Star, MapPin, TrendingUp, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { type UniversityDto } from "@/api/client";
 import { motion } from "framer-motion";
+import { Image } from "@/components/ui/image";
 
 export function CompareUniversityCard({
   u,
@@ -17,11 +18,11 @@ export function CompareUniversityCard({
     >
       {/* Dynamic Image Header */}
       <div className="relative h-32 overflow-hidden bg-charcoal">
-        <img
+        <Image
           src={u.primaryImage}
           alt={`${u.name} campus`}
           className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-90 group-hover:opacity-100"
-          loading="lazy"
+          containerClassName="absolute inset-0 h-full w-full"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0F1113] via-[#0F1113]/40 to-transparent" />
         

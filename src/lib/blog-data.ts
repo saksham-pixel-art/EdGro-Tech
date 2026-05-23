@@ -196,7 +196,7 @@ export const BLOG_POSTS: BlogPost[] = [
     metaTitle:
       "Online Data Science & AI Courses in India 2025 | Complete Guide",
     metaDescription:
-      "Explore the best online Data Science and AI degree programs in India for 2025. Compare MAHE, NMIMS, Jain University, and LPU on fees, curriculum, career outcomes, and placement records.",
+      "Explore the best online Data Science and AI degree programs in India for 2025. Compare MAHE, NMIMS, and LPU on fees, curriculum, career outcomes, and placement records.",
     category: "Data Science",
     readTime: 11,
     publishDate: "2025-02-03",
@@ -216,7 +216,7 @@ export const BLOG_POSTS: BlogPost[] = [
         "Researchers and academics wanting to formalise their computational skills",
       ],
     },
-    relatedUniversitySlugs: ["mahe", "nmims", "jain-online", "lpu"],
+    relatedUniversitySlugs: ["mahe", "nmims", "lpu"],
     feesTable: [
       {
         university: "MAHE Manipal",
@@ -232,13 +232,7 @@ export const BLOG_POSTS: BlogPost[] = [
         naac: "A++",
         placement: "₹9.6 LPA",
       },
-      {
-        university: "Jain University Online",
-        fees: "₹95K – ₹1.8L",
-        duration: "24 months",
-        naac: "A++",
-        placement: "₹7.6 LPA",
-      },
+
       {
         university: "Lovely Professional University",
         fees: "₹1.4L – ₹2.3L",
@@ -599,12 +593,12 @@ BLOG_POSTS.push(
         "Students in Tier 2/3 cities who cannot relocate for a campus program",
       ],
     },
-    relatedUniversitySlugs: ["amity", "lpu", "muj", "jain-online", "niu"],
+    relatedUniversitySlugs: ["amity", "lpu", "muj", "niu"],
     feesTable: [
       { university: "Amity University Online", fees: "₹1,75,120", duration: "3 years", naac: "A+", placement: "₹7.8 LPA" },
       { university: "Lovely Professional University", fees: "₹1,50,000", duration: "3 years", naac: "A++", placement: "₹8.6 LPA" },
       { university: "Manipal University Jaipur", fees: "₹1,39,500", duration: "3 years", naac: "A++", placement: "₹8.2 LPA" },
-      { university: "Jain University Online", fees: "₹1,50,000", duration: "3 years", naac: "A++", placement: "₹7.6 LPA" },
+
       { university: "Noida International University", fees: "₹1,08,000", duration: "3 years", naac: "A+", placement: "₹6.5 LPA" },
     ],
     curriculum: [
@@ -661,12 +655,12 @@ BLOG_POSTS.push(
         "Students planning to pursue PhD or research in computer science",
       ],
     },
-    relatedUniversitySlugs: ["amity", "lpu", "muj", "jain-online", "smu"],
+    relatedUniversitySlugs: ["amity", "lpu", "muj", "smu"],
     feesTable: [
       { university: "Amity University Online", fees: "₹1,83,080", duration: "2 years", naac: "A+", placement: "₹7.8 LPA" },
       { university: "Lovely Professional University", fees: "₹1,60,000", duration: "2 years", naac: "A++", placement: "₹8.6 LPA" },
       { university: "Manipal University Jaipur", fees: "₹1,58,000", duration: "2 years", naac: "A++", placement: "₹8.2 LPA" },
-      { university: "Jain University Online", fees: "₹1,60,000", duration: "2 years", naac: "A++", placement: "₹7.6 LPA" },
+
       { university: "Sikkim Manipal University", fees: "₹98,000", duration: "2 years", naac: "A+", placement: "₹6.2 LPA" },
     ],
     curriculum: [
